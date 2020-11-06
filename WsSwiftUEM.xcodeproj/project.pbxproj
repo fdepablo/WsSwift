@@ -1,0 +1,93 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXFileReference section */
+		FB8E9FB72555C94F005EE158 /* 07.ClasesEstructuras.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = 07.ClasesEstructuras.playground; sourceTree = "<group>"; };
+		FB8E9FB82555C94F005EE158 /* 10.Subscripts.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = 10.Subscripts.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		FB8E9FB92555C94F005EE158 /* 06.Funciones.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = 06.Funciones.playground; sourceTree = "<group>"; };
+		FB8E9FBA2555C94F005EE158 /* 08.Properties.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = 08.Properties.playground; sourceTree = "<group>"; };
+		FB8E9FBB2555C94F005EE158 /* 04.Colecciones.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = 04.Colecciones.playground; sourceTree = "<group>"; };
+		FB8E9FBC2555C94F005EE158 /* 09.Metodos.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = 09.Metodos.playground; sourceTree = "<group>"; };
+		FB8E9FBD2555C94F005EE158 /* 11.Herencia.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = 11.Herencia.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		FB8E9FBE2555C950005EE158 /* 01.Variables.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = 01.Variables.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		FB8E9FBF2555C950005EE158 /* 03.Tipos.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = 03.Tipos.playground; sourceTree = "<group>"; };
+		FB8E9FC02555C950005EE158 /* 05.ControlDeFlujo.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = 05.ControlDeFlujo.playground; sourceTree = "<group>"; };
+		FB8E9FC12555C950005EE158 /* 02.Operadores.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = 02.Operadores.playground; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		FB8E9FB02555C942005EE158 = {
+			isa = PBXGroup;
+			children = (
+				FB8E9FBE2555C950005EE158 /* 01.Variables.playground */,
+				FB8E9FC12555C950005EE158 /* 02.Operadores.playground */,
+				FB8E9FBF2555C950005EE158 /* 03.Tipos.playground */,
+				FB8E9FBB2555C94F005EE158 /* 04.Colecciones.playground */,
+				FB8E9FC02555C950005EE158 /* 05.ControlDeFlujo.playground */,
+				FB8E9FB92555C94F005EE158 /* 06.Funciones.playground */,
+				FB8E9FB72555C94F005EE158 /* 07.ClasesEstructuras.playground */,
+				FB8E9FBA2555C94F005EE158 /* 08.Properties.playground */,
+				FB8E9FBC2555C94F005EE158 /* 09.Metodos.playground */,
+				FB8E9FB82555C94F005EE158 /* 10.Subscripts.playground */,
+				FB8E9FBD2555C94F005EE158 /* 11.Herencia.playground */,
+			);
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXProject section */
+		FB8E9FB12555C942005EE158 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1210;
+			};
+			buildConfigurationList = FB8E9FB42555C942005EE158 /* Build configuration list for PBXProject "WsSwiftUEM" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = FB8E9FB02555C942005EE158;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+			);
+		};
+/* End PBXProject section */
+
+/* Begin XCBuildConfiguration section */
+		FB8E9FB52555C942005EE158 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+			};
+			name = Debug;
+		};
+		FB8E9FB62555C942005EE158 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		FB8E9FB42555C942005EE158 /* Build configuration list for PBXProject "WsSwiftUEM" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FB8E9FB52555C942005EE158 /* Debug */,
+				FB8E9FB62555C942005EE158 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = FB8E9FB12555C942005EE158 /* Project object */;
+}
