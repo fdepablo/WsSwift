@@ -5,6 +5,17 @@
  de varias lineas
 */
 
+/*
+Para crear este tipo de proyectos playground se necesita XCODE
+Pasos en la ultima version:
+ 
+1) Abrir XCODE y crear un nuevo proyecto XCODE
+2) En pestaña OTHER elegir "proyecto en blanco"
+4) Sobre el nombre del proyecto boton derecho y new File
+5) Elegir la pestaña iOS
+6) Abajo del todo escoger "Blank Playground"
+ */
+
 //XCODE seria el IDE de IOS. Seria equivalente al Eclipse
 // Swift es un lenguaje orientado a objetos y que aporta
 //mucho "azucar sintactico", es decir, el codigo es bastante
@@ -144,6 +155,10 @@ tupla2.3 = 110
 var (nombre2,_,edad2,_,_) = tupla3
 print(nombre2)
 print(edad2)
+
+//Si queremos imprimir emoticonos, podemos hacerlo con
+//ctrl+windows+espacio en la maquina virtual
+print("💋")
 
 //Optionals
 //Utilizaremos opcionales cuando una variable pueda no tener valor, es decir, apunte

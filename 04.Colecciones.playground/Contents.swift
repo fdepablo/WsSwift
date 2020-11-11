@@ -11,15 +11,15 @@ var someInts = [Int]()//Mejor manera, usar esta en general
 //repeating: numero a repetir
 //count: numero de veces que lo repetimos
 var threeDoubles = Array(repeating: 2, count: 3)
-var anotherThreeDoubles = Array(repeating: 1, count: 4)
+var cuatroVecesUnUno = Array(repeating: 1, count: 4)
 print(threeDoubles)
 
 //concatenando. Solo si tienen el mismo tipo
-var sixDoubles = threeDoubles + anotherThreeDoubles
+var arrayConcatenado = threeDoubles + cuatroVecesUnUno
 
-//Vaciar un array
-sixDoubles = []
-sixDoubles.removeAll()
+//Vaciar un array, una de las dos
+arrayConcatenado = []
+arrayConcatenado.removeAll()
 
 //crear array de strings don datos
 var shoppingList: [String] = ["Eggs", "Milk"]
@@ -46,10 +46,12 @@ shoppingList += ["Baking Powder"]
 shoppingList += ["Chocolate Spread", "Cheese", "Butter"]
 
 //añadir elementos a una posicion
+//se desplazan los demas elementos hacia la derecha
 shoppingList.insert("Maple Syrup", at: 0)
+print(shoppingList)
 
-//cambiando elementos
-shoppingList[0] = "Six eggs"//se desplazan los demas elementos hacia la derecha
+//Cambiando elementos
+shoppingList[0] = "Six eggs"
 print(shoppingList)
 
 //cambiar un rango de elementos
@@ -138,9 +140,10 @@ airports["LHR"] = "London Heathrow"
 
 //podemos modificar un valor, nos devuelve el valor viejo
 let oldValue = airports.updateValue("Dublin Airport", forKey: "DUB")
+print(oldValue)
 
 print(airports)
-//eliminar, manera mas bruta más bruta
+//eliminar, manera mas bruta
 airports["APL"] = nil
 print(airports)
 

@@ -25,8 +25,9 @@ for _ in 1...3 {
 }
 
 let minutes = 60
+//No incluye el ultimo valor
 for tickMark in 0..<minutes {
-    tickMark
+    print(tickMark)//hasta el 59
 }
 
 //un for clasico como en java(desde, hasta y salto)
@@ -36,7 +37,7 @@ var result = [Int]()
 for tickMark in stride(from: 0, to: minutes, by: minuteInterval) {
     result.append(tickMark)
 }
-result
+print(result)
 
 //Con "through" SI incluye el último valor
 result = []
@@ -79,9 +80,19 @@ number
 //////////////
 // Continue
 //////////////
-//pasamos a la siguiente iteracion
+//Cuando encuentra un "continue" dentro de un bucle, deja de
+//ejecutar el codigo siguiente y vuelve al "for" incrementando
+//la variable de control
 for index in 0...5 {
     if index == 1 {
+        continue
+    }
+    print(index)
+}
+
+//imprimir numeros del 1 al 10 menos los pares
+for index in 1...10 {
+    if(index % 2 == 0){
         continue
     }
     print(index)
@@ -91,7 +102,9 @@ print("")
 //////////////
 // Break
 //////////////
-//rompemos el bulce
+//Cuando encuentra un "break" dentro de un bucle, deja de
+//ejecutar el codigo siguiente y rompe la ejecucion del "for",
+//saliendo inmediatamente de él
 for index in 0...5 {
     if index == 1 {
         break
