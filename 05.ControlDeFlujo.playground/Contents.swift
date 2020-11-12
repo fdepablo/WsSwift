@@ -21,7 +21,7 @@ for index in 1...5 {
 
 //si no necesitamos variable de control
 for _ in 1...3 {
-    print("ole")
+    print("ole tu!")
 }
 
 let minutes = 60
@@ -45,13 +45,6 @@ let hours = 12
 let hourInterval = 3
 for tickMark in stride(from: 3, through: hours, by: hourInterval) {
     result += [tickMark]
-}
-print(result)
-
-//Si no lo incluye
-result = []
-for tickMark in stride(from: 3, to: 12, by: 3) {
-    result.append(tickMark)
 }
 print(result)
 
@@ -128,6 +121,22 @@ if 10 <= 5 {
 } else {
     print("pues tampoco va a ser")
 }
+
+var cadena : String? = "pepe"
+
+//En caso de que "cadena" tenga valor distinto a nil
+//entonces la constante "valor" coje el valor de "cadena"
+//Si cadena apunta a nil entonces no entra por el if
+if let valor = cadena {
+    print(cadena)
+}else{
+    print("Apunta a nil")
+}
+
+/* Equivalente a Java
+if(persona != null){
+    syso(persona.getNombre);
+}*/
 
 //////////////
 // Switch
