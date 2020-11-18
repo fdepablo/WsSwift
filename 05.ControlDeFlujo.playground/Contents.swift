@@ -60,13 +60,12 @@ var number = 48
 while ( number != 0) { // se pueden quitar los parentesis
     number = number - 1
 }
-number
+print(number)
 
 number = 48
 //este es un do while de toda la vida
 repeat {
     number = number - 1
-    
 } while number != 1
 number
 
@@ -114,7 +113,7 @@ if 10 <= 32 {
     print("Pues si, pues si")
 }
 
-if 10 <= 5 {
+if (10 <= 5) {//podemos poner parentesis o no
     print("Pues no, pues no")
 } else if 5 <= 10 {
     print("Pues si, pues si")
@@ -128,7 +127,7 @@ var cadena : String? = "pepe"
 //entonces la constante "valor" coje el valor de "cadena"
 //Si cadena apunta a nil entonces no entra por el if
 if let valor = cadena {
-    print(cadena)
+    print(cadena)//se convierte en un optional
 }else{
     print("Apunta a nil")
 }
@@ -141,9 +140,11 @@ if(persona != null){
 //////////////
 // Switch
 //////////////
-
+//Estructra equivalente a if-else if-else
 //admite string como opción a evaluar
-//NO hace falta un break por cada case.
+//NO hace falta poner un break por cada case.
+//solamente entramos en el case en caso de que sea igual
+//en java tiene comportamiento en cascada, por lo tanto es diferente
 let someCharacter: Character = "a"
 switch someCharacter {
 case "a":
@@ -159,21 +160,23 @@ switch anotherCharacter {
 //case "a":                 // Error!, en swift por lo menos tienen que contenter una linea
 case "A":
     print("The letter A")
-case "b", "B":              //podemos valorar varios casos
+case "b", "B":              //Podemos valorar varios casos
     print("The letter B")
 default:
     print("Not the letter A ni b ni B")
 }
 
 //también con rangos
-let approximateCount = 62
+let approximateCount = 100
 let countedThings = "moons orbiting Saturn"
 var naturalCount: String
+//print(naturalCount)//Error porque no se ha inicializado
+//OJO! Es buena praxix inicializar siempre las variables
 
 switch approximateCount {
 case 0:
     naturalCount = "no"
-case 1..<5:
+case 1..<5://no se incluye el ultimo valor
     naturalCount = "a few"
 case 5..<12:
     naturalCount = "several"
@@ -191,10 +194,10 @@ print(naturalCount)
 // Fallthrough
 //////////////
 
-//si queremos un switch de toda la vida podemos usar fallthrough
+//Si queremos un switch de toda la vida podemos usar fallthrough
 //la filosofia cambia, si queremos ejecución en cascada hay que decirlo
-//explicitamente
-let diaDeLaSemana = "SABADO"
+//explicitamente, mientras que en java es su comportamiento por defecto
+let diaDeLaSemana = "MARTES"
 switch diaDeLaSemana {
 case "LUNES":
     fallthrough
@@ -209,21 +212,21 @@ case "VIERNES":
 case "SABADO":
     fallthrough
 case "DOMINGO":
-    print("FINDE!!!!")
+    print("FINDE!!!! 😄")//iconos con ctrl+windows+espacio
 default:
     print("No se ni en que día vivo :(")
 }
 
-//o con tuplas
+//Podemos trabajar con tuplas en los swift
 let somePoint = (1, 1)
 switch somePoint {
 case (0, 0):
     print("\(somePoint) is at the origin")
-case (_, 0):
+case (_, 0)://podemos decir que sea el punto X el que sea
     print("\(somePoint) is on the x-axis")
-case (0, _):
+case (0, _)://(0,1) (0,2) (0,3)... son puntos validos
     print("\(somePoint) is on the y-axis")
-case (-2...2, -2...2):
+case (-2...2, -2...2)://(1,1)
     print("\(somePoint) is inside the box")//se ejecuta este
 default:
     print("\(somePoint) is outside of the box")
