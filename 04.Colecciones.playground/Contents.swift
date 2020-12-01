@@ -72,7 +72,6 @@ let eggs = shoppingList.remove(at: 0)//posicion
 let butter = shoppingList.removeLast()//ultimo
 print(shoppingList)
 
-
 //iterando
 for item in shoppingList {
     print("item -> \(item)")

@@ -203,34 +203,3 @@ cadena = "ppe"
 let enteroConvertido = Int(cadena)//esto seria un optional, en caso de que no pueda convertirlo
                                 //apuntaria a nil
 print(enteroConvertido ?? "valor no convertido")//ponemos "!" para desenvolver el optional
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

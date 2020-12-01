@@ -70,6 +70,11 @@ print("El valor de la variable String es: " + String(variable1))
 // queremos obtener el valor de la variable
 print("El valor de la variable String es: \(variable1)")
 
+//3- Tambien podemos poner comas ya que la funcion "print"
+//admite varios parametros de entrada
+print("El valor de la variable String es:",variable1)
+print("El valor:",variable1,"y otra vez",variable1)
+
 // Otras maneras
 var x = 0.0, y = 1.0, z = 3.0
 
@@ -98,9 +103,9 @@ print(type(of: variable1))//INT
 
 //Podemos hacer alias sobre los tipos de las variables
 //TYPEALIAS
-typealias MiTipoEntero = Int //mote
-var numero1 : MiTipoEntero = 56
-var numero2 : MiTipoEntero;//MiTipoEntero - Int
+typealias ti = Int //mote, ti sera ahora "Int"
+var numero1 : ti = 56
+var numero2 : ti;//MiTipoEntero - Int
 numero1 = 67
 print(numero1)
 
@@ -179,7 +184,7 @@ numeroNulo = 34
 numeroNulo = nil
 
 var numero3 = 45;
-//numero3 = nil //error porque por defecto las variables NO son optinal
+//numero3 = nil //error porque por defecto las variables NO son optional
 print(type(of: numeroNulo))
 print(type(of: numero3))
 
@@ -204,13 +209,18 @@ print(variableNormal)
 variableNula = nil
 //la siguiente linea no daría error en tiempo de compilacion, pero si lo daria
 //en tiempo de ejecucion, así ojo con los posibles nulos
-//variableNormal = variableNula!
+//variableNormal = variableNula!//Esto da error
 
 //Podemos hacer que los optionals hagan un "auto-unwrapper"
 var variableAutoUnwrapper : String! = "Pepe" //hacemos un optional auto-unwrapper
 variableNormal = variableAutoUnwrapper //ahora no tengo que hacer un wrapper especifico
                                     //lo hace de manera automatica
-
+//Podemos en swift hacer autowrapper en los if
+if let cadena3 = variableAutoUnwrapper{
+    print("Tiene contenido",cadena3)
+}else{
+    print("El valor es nulo")
+}
 
 
 

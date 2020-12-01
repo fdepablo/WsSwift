@@ -45,10 +45,13 @@ print(alturaColumna)//90
 //En caso de que el optional "a" sea nulo, entonces devuelve el valor de "b"
 let colorPorDefecto = "Azul"
 var colorDefinidoPorUsuario : String?//se inicializa nil
-colorDefinidoPorUsuario = "Verde"
+//colorDefinidoPorUsuario = "Verde"
 
 var color = (colorDefinidoPorUsuario ?? colorPorDefecto)
 print(color)
+
+//directamente podriamos hacer
+print(colorDefinidoPorUsuario ?? "No hay color")
 
 //operadores logicos
 //logical NOT (!variable)

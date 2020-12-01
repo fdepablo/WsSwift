@@ -8,6 +8,11 @@ for name in names {
     print("Hello, \(name)!")
 }
 
+//iterando con el indice y el valor
+for (index, value) in names.enumerated() {
+    print("Item \(index + 1): \(value)")
+}
+
 //en un diccionario
 let numberOfLegs = ["spider": 8, "ant": 6, "cat": 4]
 for (animalName, legCount) in numberOfLegs {
@@ -63,11 +68,11 @@ while ( number != 0) { // se pueden quitar los parentesis
 print(number)
 
 number = 48
-//este es un do while de toda la vida
+//este es un "do-while" de toda la vida
 repeat {
     number = number - 1
 } while number != 1
-number
+print(number)
 
 //////////////
 // Continue
@@ -127,7 +132,7 @@ var cadena : String? = "pepe"
 //entonces la constante "valor" coje el valor de "cadena"
 //Si cadena apunta a nil entonces no entra por el if
 if let valor = cadena {
-    print(cadena)//se convierte en un optional
+    print(valor)
 }else{
     print("Apunta a nil")
 }
@@ -157,13 +162,13 @@ default:
 
 let anotherCharacter: Character = "B"
 switch anotherCharacter {
-//case "a":                 // Error!, en swift por lo menos tienen que contenter una linea
+//case "a":                 // Error!, en swift por lo menos tienen que contenter una linea los case
 case "A":
     print("The letter A")
 case "b", "B":              //Podemos valorar varios casos
     print("The letter B")
 default:
-    print("Not the letter A ni b ni B")
+    print("Not the letter A nor b nor B")
 }
 
 //también con rangos
@@ -193,11 +198,10 @@ print(naturalCount)
 /////////////
 // Fallthrough
 //////////////
-
-//Si queremos un switch de toda la vida podemos usar fallthrough
-//la filosofia cambia, si queremos ejecución en cascada hay que decirlo
-//explicitamente, mientras que en java es su comportamiento por defecto
+//Si queremos un switch de toda la vida(JAVA) podemos usar fallthrough
+//Aquí, la filosofia cambia, si queremos ejecución en cascada hay que decirlo explicitamente, mientras que en java es su comportamiento por defecto
 let diaDeLaSemana = "MARTES"
+
 switch diaDeLaSemana {
 case "LUNES":
     fallthrough
@@ -219,6 +223,7 @@ default:
 
 //Podemos trabajar con tuplas en los swift
 let somePoint = (1, 1)
+
 switch somePoint {
 case (0, 0):
     print("\(somePoint) is at the origin")

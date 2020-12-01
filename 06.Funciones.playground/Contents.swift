@@ -6,13 +6,16 @@
 
 //Requieren que se indique el tipo de los parámetros de entrada y
 //de salida
-func suma(a: Int, b: Int) -> Int {//a y b serian entrada, y devolvemos un Int
-    return a + b //estos son internos & externos, es decir se llaman igual tanto dentro como fuera de la funcion
+func suma(numero1: Int, numero2: Int) -> Int {//a y b serian entrada, y devolvemos un Int
+    return numero1 + numero2 //estos son internos & externos, es decir se llaman igual tanto dentro como fuera de la funcion
 }
 
-let sum = suma(a: 3, b: 6)
+let sum = suma(numero1: 3, numero2: 6)
+//En java sería
+//suma(3,6), cual es el numero1 y cual el 2? y que representa?
+
 //el orden importa
-//sum = suma(b: 5, a: 11) //error!
+//sum = suma(numero1: 5, numero2: 11) //error!
 
 //Pueden tener parámetros internos y externos.
 //Dentro de la funcion el parametro se llamara "parametroInternoA"
@@ -36,7 +39,17 @@ func sumPlus(a: Int, b: Int, thenMultiplyBy c: Int) -> Int {
 }
 let sumMul = sumPlus(a: 3, b: 4, thenMultiplyBy: 5)
 
+//Omisión del parámetro externo, para darle un comportamiento como
+//las funciones y metodos de java, es decir, que cuando invoquemos
+//la funcion no tengamos que poner el nombre del parametro externo
+func sinParametroExterno(_ a: String) -> Void {//Con Void no devolvemos nada
+    print("hacemos cosas... " + a)
+}
+sinParametroExterno("hola")//ahora invocas la funcion como en java
+
 //Parámetros por referencia y valor
+//Referencia pasamos una "referencia" del objeto, es decir, si cambias el objeto se cambia fuera de la funcion
+//Valor lo que pasamos es una copia del objeto, es decir, si lo cambiamos dentro no se cambia fuera de la funcion
 //En una función, todos los parámetros son constantes, no se pueden cambiar
 func holaMundoValor(a: String) {
     //a = a + "hola" //Error!
@@ -52,7 +65,7 @@ var parametro = "hola"
 func holaMundo(a: inout String) {
     a = a + " mundo"//ahora si podemos cambiarlo
 }
-//OJO, al invocar el metodo debemos de poner un "&" delante del
+//OJO! 🤓, al invocar el metodo debemos de poner un "&" delante del
 //parametro
 holaMundo(a: &parametro)
 print(parametro)
@@ -64,13 +77,6 @@ func holaMundoRetornando(a: String) -> String{
 
 print(holaMundoRetornando(a: "Hola"))
 
-//Omisión del parámetro externo, para darle un comportamiento como
-//las funciones y metodos de java, es decir, que cuando invoquemos
-//la funcion no tengamos que poner el nombre del parametro externo
-func sinParametroExterno(_ a: String) -> Void {//Con Void no devolvemos nada
-    print("hacemos cosas... " + a)
-}
-sinParametroExterno("hola")//ahora invocas la funcion como en java
 
 ////////////
 //Valores por defecto
@@ -84,18 +90,19 @@ func addSuffixTo(a: String, suffix: String = "of the Storm") -> String {
 //ahora podemos invocar la funcion de dos maneras
 print(addSuffixTo(a: "Heroes "))//en este caso suffix tomara "of the storm"
 print(addSuffixTo(a: "Objective", suffix: " C"))
+print(addSuffixTo(a: "Objective "))
 
 func addPrefix(prefix: String = "Harry", a: String) -> String {
     return prefix + a
 }
-addPrefix(a: "Potter")
-addPrefix(prefix: "Objective", a: " C")
+print(addPrefix(a: "Potter"))
+print(addPrefix(prefix: "Objective", a: " C"))
 
 //Podemos indicar que admiten 0 o mas valores en los parámetros
 //de entrada, en este caso el valor de entrada se convertiria
 //en un Array
-//En este caso quiero calcular la media de serie de parametros
-//variables de entrada
+//En este caso quiero calcular la media de una serie de parametros
+//parametros de entrada
 func arithmeticMean(_ numbers: Double...) -> Double {
     var total: Double = 0
     
@@ -121,7 +128,6 @@ print(arithmeticMean())
 ////////////
 // Valores de retorno
 ////////////
-
 //un solo tipo
 func returnAlwaysTrue() -> Bool {
     return true
@@ -149,7 +155,7 @@ print(numero)
 print(en)
 print(es)
 
-//Otro ejemplo
+//Otro ejemplo con nombres en la tupla
 func minMax(array: [Int]) -> (min: Int, max: Int) {
     var currentMin = array[0]
     var currentMax = array[0]
