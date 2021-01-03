@@ -159,7 +159,7 @@ print(resolution2.width)
 
 //Todos están implementados como estructuras. Por lo tanto todos se copian cuando se asignan una nueva variable o constante o cuando los pasamos como parámetros en funciones
 
-//Ojo que las clases de Foundation (NSString, NSArray, NSDiccionary) están implementadas como clases. Son antiguas
+//Ojo para la gente de objective-C, que las clases de Foundation (NSString, NSArray, NSDiccionary) están implementadas como clases. Son antiguas
 
 var nombres = ["Kyra", "Nina", "Lais"]
 var nombresCopia = nombres //SE COPIA

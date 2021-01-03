@@ -1,16 +1,16 @@
-//en swift llaman métodos a las funciones que hay dentro de una clase o una estructura
+//En swift se llaman métodos a las funciones que hay dentro de una clase o una estructura
 
 //////////////////
 // De instancia
 //////////////////
 
-//hace falta una instancia de la clase para llamarlos
+//Hace falta una instancia de la clase para llamarlos
 class Counter {
     var count = 0
     func increment() {
         count += 1
     }
-    func increment(by amount: Int) {
+    func increment(by amount: Int) {//parametro exterior e interior
         count += amount
     }
     func reset() {
@@ -27,7 +27,7 @@ counter.reset()
 counter.count
 
 //////////////////
-// De clase
+// De clase, equivalente a metodos estáticos en java
 //////////////////
 
 //Se llaman directamente con la clase
@@ -42,7 +42,7 @@ SomeClass.someTypeMethod()
 // Self
 //////////////////
 
-//el puntero a si mismo de toda la vida de dios
+//el puntero a si mismo, de toda la vida de dios, equivalente al "this" en java
 
 struct Point {
     var x = 0.0, y = 0.0
@@ -60,7 +60,7 @@ if somePoint.isToTheRightOf(x: 1.0) {
 // Modificando valores dentro de métodos de instancia
 //////////////////
 
-//en clases nada especial..
+//En clases nada especial
 class Point2D {
     var x = 0.0, y = 0.0
     
@@ -70,18 +70,19 @@ class Point2D {
     }
 }
 
-//en estructuras o enums ya es otro cantar
+//En estructuras o enums ya es otro cantar
 struct Point3D {
     var x = 0.0, y = 0.0, z = 0.0
     
-    //así no funciona, no podemos cambiar estos valores ya que las estructuras van por valor (a diferencia de los objetos que van por referencia
-//    func moveBy(x deltaX: Double, y deltaY: Double, z deltaZ: Double) {
-//        x += deltaX
-//        y += deltaY
-//        z += deltaZ
-//    }
+    //Así no funciona, no podemos cambiar estos valores ya que las estructuras van por valor (a diferencia de los objetos que van por referencia
     
-    //tenemos que decir que pueda mutar
+/*    func moveBy(x deltaX: Double, y deltaY: Double, z deltaZ: Double) {
+        x += deltaX
+        y += deltaY
+        z += deltaZ
+*/    }
+    
+    //tenemos que decir que pueda mutar con la palabra "mutating"
     mutating func moveBy(x deltaX: Double, y deltaY: Double, z deltaZ: Double) {
         x += deltaX
         y += deltaY

@@ -11,7 +11,7 @@ struct FixedLengthRange {
 
 var rangeOfThreeItems = FixedLengthRange(firstValue: 0, length: 3)
 rangeOfThreeItems.firstValue = 6
-rangeOfThreeItems.firstValue
+print(rangeOfThreeItems.firstValue)
 //rangeOfThreeItems.length = 3 //Error, está como let -> constante
 
 let rangeOfFourItems = FixedLengthRange(firstValue: 0, length: 4)
@@ -24,13 +24,15 @@ let rangeOfFourItems = FixedLengthRange(firstValue: 0, length: 4)
 
 //Este tipo de propiedades son útiles cuando su valor inicial depende de factores externos cuyos valores no los conocemos hasta después de instanciar la clase.
 
+//En swift podemos utilizar la palabra reservada "lazy" en las propiedades para proporcionar este comportamiento
+
 class DataImporter {
     var filename = "data.txt"
 }
 
 class DataManager {
     lazy var importer = DataImporter()
-    var data = [String]()
+    var data = [String]()//un array de String
 }
 
 let manager = DataManager()
@@ -47,7 +49,7 @@ dump(manager)
 ////////////////
 
 //este tipo de propiedades no almacenan ningún valor, sino que proporcionan getter y setter a otras propiedades. Estan tanto en estructuras como en clases
-//Obligatorio -> Si ponemos un Set, necesitamos un Get
+//Obligatorio -> Si ponemos un Set, necesitamos un Get, pero si ponemos un Get no tenemos porque poner un Set
 
 struct User {
     var name: String
@@ -104,7 +106,7 @@ print(user.readOnlyProperty)
 
 class StepCounter {
     var totalSteps: Int = 0 {
-        willSet(newTotalSteps) {//este metodo será llamado justo antes de llamar a la propiedad
+        willSet(newTotalSteps) {//este metodo será llamado justo antes de llamar a la propiedad, si no damos parametro en esta funcion se crea por defecto "newValue"
             print("About to set totalSteps to \(newTotalSteps)")
         }
         didSet (oldTotalSteps) {//Este metodo sera llamado justo despues de que el viejo valor se haya cambiado, si no damos parametro en esta funcion se crea por defecto "oldValue"
@@ -121,7 +123,7 @@ stepCounter.totalSteps = 200
 stepCounter.totalSteps = 360
 
 /////////////////
-// Propiedades de Clase
+// Propiedades de Clase, cuando queremos que una propiedad no pertenezca a la instancia
 ////////////////
 
 class Persona {
