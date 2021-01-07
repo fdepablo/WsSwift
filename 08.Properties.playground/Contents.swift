@@ -3,6 +3,7 @@
 ////////////////
 
 //una stored property es una constante o una variable que se almacena como parte de una instancia de una clase o una estructura
+//Esto seria equivalente a las propiedades NO estaticas de java
 
 struct FixedLengthRange {
     var firstValue: Int
@@ -12,15 +13,16 @@ struct FixedLengthRange {
 var rangeOfThreeItems = FixedLengthRange(firstValue: 0, length: 3)
 rangeOfThreeItems.firstValue = 6
 print(rangeOfThreeItems.firstValue)
-//rangeOfThreeItems.length = 3 //Error, está como let -> constante
+//rangeOfThreeItems.length = 3 //Error, length está como let -> constante
 
 let rangeOfFourItems = FixedLengthRange(firstValue: 0, length: 4)
-//rangeOfFourItems.firstValue = 6 //Error, está como let -> constante
+//rangeOfFourItems.firstValue = 6 //Error, rangeOfFourItems está como let -> constante
+//rangeOfFourItems.length //Tampoco puedo :( :(
 
 /////////////////
 // Lazy Stored Properties
 ////////////////
-//Propiedad que su valor inicial no es calculado hasta que no se utiliza por primera vez. Por lo tanto SIEMPRE tienen que ir como variables (var)
+// Son Propiedades que su valor inicial no es calculado hasta que no se utiliza por primera vez. Por lo tanto SIEMPRE tienen que ir como variables (var)
 
 //Este tipo de propiedades son útiles cuando su valor inicial depende de factores externos cuyos valores no los conocemos hasta después de instanciar la clase.
 

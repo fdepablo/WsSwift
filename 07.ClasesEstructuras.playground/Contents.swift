@@ -1,28 +1,29 @@
 ////////////
+// En swift tenemos dos maneras de encapsular información, por un lado tenemos las estructuras y por otro las clases
+//
 // Cosas comunes
 ////////////
 
 //Definen propiedades y almacenan valores
 //Definen métodos que aportan funcionalidad
-//Definen inicializadores
-//Pueden ser expandidas para aumentar su funcionalidad
+//Definen inicializadores o constructores para las clases
+//Pueden ser expandidas para aumentar su funcionalidad (parecido a herencia)
 
 ////////////
 // Solo las estructuras
 ////////////
-//Son variables normales, se guarda el valor del dato, no la posicion de memoria
-// de donde se encuentra
-//Definen constructures para todos sus parametros
+//Son variables normales, se guarda el valor del dato, no la posicion de memoria de donde se encuentra. NO SON REFERENCIAS COMO EN LAS CLASES
+//Definen constructures para todas sus propiedades
 
 ////////////
 // Solo las clases
 ////////////
 //Podemos utilizar herencia
-//Son variables de referencia
+//Son variables de referencia, es decir lo que se guarda es la posicion de memoria del objeto al que está apuntando
 //Métodos cuando se libera de memoria (deinit)
 
 ////////////
-// Definición
+// Definición de estructura
 ////////////
 
 struct Resolution {
@@ -30,14 +31,17 @@ struct Resolution {
     var height = 0
 }
 
-//Se nos crean constructores por defecto en las estructuras
+//Se nos crean constructores o inicializadores por defecto en las estructuras basandose en las propiedades
 let someResolution = Resolution()
 let vga = Resolution(width: 640, height: 480)
 let otra = Resolution(height: 480)
-let otraMas = Resolution(width: 640)
+var otraMas = Resolution(width: 640)
 
+otraMas.width = 1080
 //Error es let
 //someResolution.height = 56;
+
+print(otraMas.width)
 
 //tambien es facil imprimirlos por defecto
 print(someResolution)
@@ -45,8 +49,9 @@ print(vga)
 print(otra)
 print(otraMas)
 
+//Definicion de clase
 class VideoMode {
-    var resolution = Resolution()
+    var resolution = Resolution()//inferencia de tipos
     var interlaced = false
     var frameRate = 0.0
     var name: String?//por defecto nil
@@ -58,21 +63,27 @@ class VideoMode {
 let someVideoMode = VideoMode()
 //someVideoMode = VideoMode(interlaced: true)//Error!
 
+//someVideoMode es let, o que quiere decir que no pudeo cambiar
+//la referencia de donde esta apuntando
+//someVideoMode = VideoMode()//Error!!
+someVideoMode.name = "VGA"
+
 ////////////
 // Propiedades
 ////////////
 
-//con swift no nos hacen falta getter o setter
-someResolution.width
-someVideoMode.resolution.width
-someVideoMode.resolution.width = 1280
+//con swift no nos hacen falta getter o setter, se crean automaticamente
+print(someResolution.width)//seria el GET
+someVideoMode.resolution.width = 1280//seria el SET
+print(someVideoMode.resolution.width)
 
-
-let tenEighty = VideoMode()
+let tenEighty = VideoMode()//creamos modo de video full hd
 tenEighty.resolution = Resolution(width: 1920, height: 1080)
+//equivalente en java
+//tenEigthy.setResolution(Resolution(width: 1920, height: 1080)
 tenEighty.interlaced = true
-tenEighty.name = "1080i"
-tenEighty.frameRate = 25.0
+tenEighty.name = "FULL HD"
+tenEighty.frameRate = 30.0
 //Notese que es "let", pero aun asi podemos seguir cambiando sus propiedades
 
 //Para imprimir un objeto así no sale bien por defecto
@@ -84,7 +95,7 @@ dump(tenEighty)
 //Las variables de Clases son referencias
 let alsoTenEighty = tenEighty
 print(alsoTenEighty.frameRate)
-print(alsoTenEighty.frameRate = 30.0)
+print(alsoTenEighty.frameRate = 60.0)
 print(alsoTenEighty.frameRate)
 print(tenEighty.frameRate)
 
@@ -104,7 +115,7 @@ print(someResolution)
 // Identity Operators
 ////////////
 //Solo con clases. Con Struct o enums no se puede hacer, a parte de porque falla el compilador, estas cada vez que se asignan a una constante o variable, son copiadas
-//esto solo compara instancias
+//esto solo compara instancias, equivalente al "==" de java
 if tenEighty === alsoTenEighty { //podemos usar tambien "!===" para distinto
     print("tenEighty and alsoTenEighty refer to the same VideoMode instance.")
 }
@@ -126,11 +137,7 @@ func probandoInstancias(_ a: Resolution, _ b: VideoMode, _ c: inout Resolution) 
     //seguir cambiando sus propiedades
     b.name = "CAMBIADO"
     //b = VideoMode() //Esto en cambio Error!! no podemos cambiar la referencia al ser let.
-    
-    //Esto sería equivalente a lo anterior
-    let localvideo = b
-    localvideo.name = "CAMBIADO"
-    
+   
     //este si podemos modificarlo ya que es de entrada y salida y no "let"
     c.width = 3840
 }
@@ -154,7 +161,7 @@ print(resolution2.width)
 //4. no vamos a necesitar herencia
 
 ////////////
-// Strings, Arrays y Diccionarios
+// OJO con Strings, Arrays y Diccionarios
 ////////////
 
 //Todos están implementados como estructuras. Por lo tanto todos se copian cuando se asignan una nueva variable o constante o cuando los pasamos como parámetros en funciones
@@ -162,7 +169,7 @@ print(resolution2.width)
 //Ojo para la gente de objective-C, que las clases de Foundation (NSString, NSArray, NSDiccionary) están implementadas como clases. Son antiguas
 
 var nombres = ["Kyra", "Nina", "Lais"]
-var nombresCopia = nombres //SE COPIA
+var nombresCopia = nombres //SE COPIA OJO! En java eran referencias
 
 //Si borramos en uno, NO se borra en el otro
 nombresCopia.remove(at: 0)
