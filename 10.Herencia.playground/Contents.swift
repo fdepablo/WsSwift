@@ -13,10 +13,10 @@ class Vehicle {
     class var variableParasobreEscribir: String {
             return "ajam"
     }
-    
+    /* Ver ejemplo siguiente para subscript
     subscript(index: Int) -> Int {
         return 42
-    }
+    }*/
 }
 
 var vehicle = Vehicle()
@@ -80,23 +80,24 @@ class HotWheels : Vehicle {
         }
     }
     
-    //en subscripts
-    
+    //Para subscripts
+    /*
     override subscript(index: Int) -> Int {
         return 24
     }
     
     func subscriptDelPadre(index:Int) -> Int {
         return super[5] //super para el padre
-    }
+    }*/
 }
 
 let toy = HotWheels()
 toy.description
 toy.makeNoise()
 toy.currentSpeed
-toy[5]
-toy.subscriptDelPadre(index: 5)
+//Para subscript
+//toy[5]
+//toy.subscriptDelPadre(index: 5)
 HotWheels.variableParasobreEscribir
 
 toy.currentSpeed = 50

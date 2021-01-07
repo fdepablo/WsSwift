@@ -125,7 +125,7 @@ func probandoInstancias(_ a: Resolution, _ b: VideoMode, _ c: inout Resolution) 
     //Esto en cambio si podemos, porque una rerefencia aunque sea "let" podemos
     //seguir cambiando sus propiedades
     b.name = "CAMBIADO"
-    //b = VideoMode() //Esto en cambio Error!!
+    //b = VideoMode() //Esto en cambio Error!! no podemos cambiar la referencia al ser let.
     
     //Esto sería equivalente a lo anterior
     let localvideo = b
@@ -145,7 +145,7 @@ print(video.name ?? "no hay nombre")
 print(resolution.width)
 print(resolution2.width)
 
-
+//Consideraciones
 //Consideraremos crear una estructura si:
 
 //1. simplemente queremos encapsular algunos valores.
