@@ -1,44 +1,50 @@
 ////////////
 // En swift tenemos dos maneras de encapsular información, por un lado tenemos las estructuras y por otro las clases
 //
-// Cosas comunes
+// Cosas comunes de las estructuras y de las clases
 ////////////
 
 //Definen propiedades y almacenan valores
 //Definen métodos que aportan funcionalidad
-//Definen inicializadores o constructores para las clases
+//Definen inicializadores o constructores para ambos
 //Pueden ser expandidas para aumentar su funcionalidad (parecido a herencia)
 
 ////////////
 // Solo las estructuras
 ////////////
-//Son variables normales, se guarda el valor del dato, no la posicion de memoria de donde se encuentra. NO SON REFERENCIAS COMO EN LAS CLASES
-//Definen constructures para todas sus propiedades
+//a) Son variables normales:
+    //1) se guarda el valor del dato,
+    //2) no se guarda la posicion de memoria de donde se encuentra.
+    //3) NO SON REFERENCIAS COMO EN LAS CLASES
+//b) Definen constructures para todas sus propiedades, de manera automatica, swift los crea por nosotros
 
 ////////////
 // Solo las clases
 ////////////
-//Podemos utilizar herencia
-//Son variables de referencia, es decir lo que se guarda es la posicion de memoria del objeto al que está apuntando
-//Métodos cuando se libera de memoria (deinit)
+//a) Podemos utilizar herencia
+//b) Son variables de referencia, es decir lo que se guarda es la posicion de memoria del objeto al que está apuntando
+//c) Tiene métodos cuando se libera de memoria (deinit), como en java, lo que pasa es que no son muy usados
 
 ////////////
-// Definición de estructura
+// Definición de estructura, con la palabra "struct"
 ////////////
 
 struct Resolution {
+    //propiedades
     var width = 0
     var height = 0
+    
+    //Se nos crean constructores o inicializadores por defecto en las estructuras basandose en las propiedades
 }
 
-//Se nos crean constructores o inicializadores por defecto en las estructuras basandose en las propiedades
 let someResolution = Resolution()
 let vga = Resolution(width: 640, height: 480)
 let otra = Resolution(height: 480)
 var otraMas = Resolution(width: 640)
 
+//notese que podemos hacer esto porque es variable "var"
 otraMas.width = 1080
-//Error es let
+//Error es let, y es constante
 //someResolution.height = 56;
 
 print(otraMas.width)
@@ -58,12 +64,12 @@ class VideoMode {
 }
 
 
-//Las clases no tienen varios constructores por defecto
+//Las clases NO tienen varios constructores por defecto
 //Se vera más adelante
-let someVideoMode = VideoMode()
+let someVideoMode = VideoMode()//se crea el objeto sin la palabra "new"
 //someVideoMode = VideoMode(interlaced: true)//Error!
 
-//someVideoMode es let, o que quiere decir que no pudeo cambiar
+//someVideoMode es let, lo que quiere decir que no pudeo cambiar
 //la referencia de donde esta apuntando
 //someVideoMode = VideoMode()//Error!!
 someVideoMode.name = "VGA"
@@ -74,17 +80,18 @@ someVideoMode.name = "VGA"
 
 //con swift no nos hacen falta getter o setter, se crean automaticamente
 print(someResolution.width)//seria el GET
+someVideoMode.interlaced = true//seria el SET
 someVideoMode.resolution.width = 1280//seria el SET
-print(someVideoMode.resolution.width)
+print(someVideoMode.resolution.width)//seria el GET
 
 let tenEighty = VideoMode()//creamos modo de video full hd
 tenEighty.resolution = Resolution(width: 1920, height: 1080)
 //equivalente en java
-//tenEigthy.setResolution(Resolution(width: 1920, height: 1080)
+//tenEigthy.setResolution(new Resolution(1920, 1080)
 tenEighty.interlaced = true
 tenEighty.name = "FULL HD"
 tenEighty.frameRate = 30.0
-//Notese que es "let", pero aun asi podemos seguir cambiando sus propiedades
+//Notese que es "let", pero aun asi podemos seguir cambiando sus propiedades, ya que estamos trabajando con objetos
 
 //Para imprimir un objeto así no sale bien por defecto
 print(tenEighty)
@@ -99,7 +106,7 @@ print(alsoTenEighty.frameRate = 60.0)
 print(alsoTenEighty.frameRate)
 print(tenEighty.frameRate)
 
-//Las variables de estructuras son variables de referencias que
+//Las variables de estructuras son variables normales que
 //se pasan por valor
 print(someResolution)
 var otraResolucion = someResolution
@@ -108,33 +115,32 @@ otraResolucion.width = 900
 print(otraResolucion)
 print(someResolution)
 
-//No podemos comparar estructuras
-//someResolution == otraResolucion //Error!
-
 ////////////
-// Identity Operators
+// Identity Operators "==="
 ////////////
-//Solo con clases. Con Struct o enums no se puede hacer, a parte de porque falla el compilador, estas cada vez que se asignan a una constante o variable, son copiadas
-//esto solo compara instancias, equivalente al "==" de java
+//Solo se puede utilizar con clases. Con Struct o enums no se puede hacer, a parte de porque falla el compilador, estas cada vez que se asignan a una constante o variable, son copiadas
+//Equivalente al "==" de java, comparando si ambas variables apuntan al mismo objeto
 if tenEighty === alsoTenEighty { //podemos usar tambien "!===" para distinto
     print("tenEighty and alsoTenEighty refer to the same VideoMode instance.")
 }
+
+//No podemos comparar estructuras
+//someResolution === otraResolucion //Error!
 
 ////////////
 // Clases o estructuras
 ////////////
 
-//Las instancias de las estructuras siempre se pasan por valor y las de la clase siempre por referencia
+//Las instancias de las estructuras siempre se pasan por valor (se hace una copia de la variable cuando se pasa por parametro a una funcion). Mientras que las de la clases siempre por referencia, es decir se pasa el mismo objeto, no se hace copia del objeto
 
 func probandoInstancias(_ a: Resolution, _ b: VideoMode, _ c: inout Resolution) {
-    //recordemos que por defecto los parametros son "let"
-    //a.height = 34//Error!
-    //Intentamos modificar el parametro cambiandolo
+    //Recordemos que por defecto los parametros son "let", excepto si le ponemos la palabra reservada "inout" que en este caso sería variable
+    //a.width = 34//Error!
+    //Podemos hacer una copia de "a" y luego trabajar con esos valores
     var localParameter = a
     localParameter.width = 3840
     
-    //Esto en cambio si podemos, porque una rerefencia aunque sea "let" podemos
-    //seguir cambiando sus propiedades
+    //Esto en cambio si podemos, porque una rerefencia aunque sea "let" podemos seguir cambiando sus propiedades
     b.name = "CAMBIADO"
     //b = VideoMode() //Esto en cambio Error!! no podemos cambiar la referencia al ser let.
    
@@ -148,6 +154,7 @@ var resolution = Resolution(width: 320, height: 480)
 var resolution2 = Resolution(width: 1920, height: 1080)
 
 probandoInstancias(resolution, video, &resolution2)
+
 print(video.name ?? "no hay nombre")
 print(resolution.width)
 print(resolution2.width)
@@ -157,7 +164,7 @@ print(resolution2.width)
 
 //1. simplemente queremos encapsular algunos valores.
 //2. sea razonable pensar que los valores encapsulados sean copiados en lugar de referenciados cuando intanciemos la estructura.
-//3. las propiedades almacenadas por la estructura son tipos simples, que también se espera que se copien en lugar de referenciarse
+//3. las propiedades almacenadas por la estructura son de tipos simples, que también se espera que se copien en lugar de referenciarse
 //4. no vamos a necesitar herencia
 
 ////////////
