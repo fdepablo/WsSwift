@@ -3,7 +3,7 @@
 ////////////////
 
 //una stored property es una constante o una variable que se almacena como parte de una instancia de una clase o una estructura
-//Esto seria equivalente a las propiedades NO estaticas de java
+//Esto seria equivalente a las propiedades NO estaticas de java, es decir, dinamicas
 
 struct FixedLengthRange {
     var firstValue: Int
@@ -17,7 +17,84 @@ print(rangeOfThreeItems.firstValue)
 
 let rangeOfFourItems = FixedLengthRange(firstValue: 0, length: 4)
 //rangeOfFourItems.firstValue = 6 //Error, rangeOfFourItems está como let -> constante
-//rangeOfFourItems.length //Tampoco puedo :( :(
+rangeOfFourItems.length //Tampoco podría modificarla, ya que es constante
+
+
+/////////////////
+// Propiedades de Clase, cuando queremos que una propiedad no pertenezca a la instancia. Equivaldría a las propiedades estaticas de java
+////////////////
+
+class Persona {
+    static var edadMaximaDeLasPersonas = 100
+    var nombre : String?
+    var edad : Int = 0
+    
+    //Tambien podemos hacer una propiedad computada como estatica. Ver más abajo "Computed Properties"
+    static var computedTypeProperty: Int {
+        return 27
+    }
+    
+}
+
+var persona = Persona()
+persona.nombre = "Fulano"
+persona.edad = Persona.edadMaximaDeLasPersonas
+dump(persona)
+
+/////////////////
+// Computed Properties (declarar explicitamente getter y setter)
+////////////////
+//Este tipo de propiedades no almacenan ningún valor, sino que proporcionan getter y setter a otras propiedades. Estan tanto en estructuras como en clases
+//Obligatorio -> Si ponemos un Set, necesitamos un Get, pero si ponemos un Get no tenemos porque poner un Set
+
+struct User {
+    //estas dos variables tendrían el getter y setter por defecto
+    var name: String
+    var surname: String
+    
+    //ahora vamos a declarar nuestro propio getter y setter
+    var completeName: String {
+        get {
+            return name + " " + surname
+        }
+        
+        set(username) {
+            let values = username.split(separator: " ")
+            name = String(values[0])
+            surname = String(values[1])
+        }
+    }
+    
+    //tambien el setter se puede declarar sin parametro, entonces el parametros de entrada será "newValue"
+    var username: String {
+        get {
+            return name + " " + surname
+        }
+        
+        set {//se crearia el parametro "newValue"
+            let values = newValue.split(separator: " ")
+            name = String(values[0])
+            surname = String(values[1])
+        }
+    }
+    
+    //podemos hacer solo get
+    var readOnlyProperty: String {
+        //get { //El get seria optional
+            return "Esta es solo de lectura"
+        //}
+    }
+}
+var user = User(name: "fulano", surname: "de tal")
+print(user.completeName)
+user.completeName = "Aitor Menta"
+print(user.name)
+
+user.username = "Harry Potter"
+print(user.username)
+print(user.name)
+print(user.readOnlyProperty)
+
 
 /////////////////
 // Lazy Stored Properties
@@ -47,59 +124,6 @@ print(manager.importer.filename)
 dump(manager)
 
 /////////////////
-// Computed Properties
-////////////////
-
-//este tipo de propiedades no almacenan ningún valor, sino que proporcionan getter y setter a otras propiedades. Estan tanto en estructuras como en clases
-//Obligatorio -> Si ponemos un Set, necesitamos un Get, pero si ponemos un Get no tenemos porque poner un Set
-
-struct User {
-    var name: String
-    var surname: String
-    
-    var completeName: String {
-        get {
-            return name + " " + surname
-        }
-        
-        set(username) {
-            let values = username.split(separator: " ")
-            name = String(values[0])
-            surname = String(values[1])
-        }
-    }
-    
-    //tambien el setter se puede declarar tal que
-    var username: String {
-        get {
-            return name + " " + surname
-        }
-        
-        set {//se crearia el parametro "newValue"
-            let values = newValue.split(separator: " ")
-            name = String(values[0])
-            surname = String(values[1])
-        }
-    }
-    
-    var readOnlyProperty: String {
-        //get { //El get seria optional
-            return "Esta es solo de lectura"
-        //}
-    }
-}
-var user = User(name: "fulano", surname: "de tal")
-print(user.completeName)
-user.completeName = "Aitor Menta"
-print(user.name)
-
-user.username = "Harry Potter"
-print(user.username)
-print(user.name)
-print(user.readOnlyProperty)
-
-
-/////////////////
 // Property Observers
 ////////////////
 
@@ -119,28 +143,9 @@ class StepCounter {
     }
 }
 
-
 let stepCounter = StepCounter()
 stepCounter.totalSteps = 200
 stepCounter.totalSteps = 360
 
-/////////////////
-// Propiedades de Clase, cuando queremos que una propiedad no pertenezca a la instancia
-////////////////
 
-class Persona {
-    static var edadMaxima = 100
-    var nombre : String?
-    var edad : Int = 0
-    
-    static var computedTypeProperty: Int {
-        return 27
-    }
-    
-}
-
-var persona = Persona()
-persona.nombre = "Fulano"
-persona.edad = Persona.edadMaxima
-dump(persona)
 

@@ -2,7 +2,7 @@
 
 class Vehicle {
     var currentSpeed = 0.0
-    var description: String {//Get
+    var description: String {//Computed Properties GET
         return "traveling at \(currentSpeed) miles per hour"
     }
     
@@ -13,7 +13,8 @@ class Vehicle {
     class var variableParasobreEscribir: String {
             return "ajam"
     }
-    /* Ver ejemplo siguiente para subscript
+    
+    /* Ver ejemplo siguiente para la herencia con subscript
     subscript(index: Int) -> Int {
         return 42
     }*/
@@ -48,7 +49,7 @@ tandem.description
 
 //ojo, esto da error
 //tandem = bicycle
-//Esto en cambio funciona
+//Esto en cambio funciona, ya que con una referencia padre podemos apuntar a cualquier objeto que herede de ella
 vehicle = bicycle
 dump(vehicle)
 
@@ -56,8 +57,8 @@ dump(vehicle)
 // Sobreescritura
 //////////////////
 
-//podemos sobreescribir tanto computed properties como funciones, incluso variables de clase (si son computed)
-class HotWheels : Vehicle {
+//Podemos sobreescribir tanto computed properties como funciones, incluso variables de clase (si son computed)
+class Tractor : Vehicle {
     override var description: String {
         return "Toys do not travel"
     }
@@ -91,18 +92,18 @@ class HotWheels : Vehicle {
     }*/
 }
 
-let toy = HotWheels()
+let toy = Tractor()
 toy.description
 toy.makeNoise()
 toy.currentSpeed
 //Para subscript
 //toy[5]
 //toy.subscriptDelPadre(index: 5)
-HotWheels.variableParasobreEscribir
+Tractor.variableParasobreEscribir
 
 toy.currentSpeed = 50
 
-//Podemos conseguir que tanto las propiedades como métodos no se sobreescriban añadiendo: final
+//Podemos conseguir que tanto las propiedades como métodos no se sobreescriban añadiendo la palabra reservada "final", como en java
 class Train : Vehicle {
     final var maxSpeed: Double {
             return 300
@@ -112,7 +113,7 @@ class Train : Vehicle {
         
     }
 }
-
+//Esta clase daria error ya que no podemos sobreescribir
 //class Talgo : Train {
 //    override var maxSpeed: Double {
 //        return 280
