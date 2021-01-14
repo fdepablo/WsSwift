@@ -17,8 +17,8 @@ print(rangeOfThreeItems.firstValue)
 
 let rangeOfFourItems = FixedLengthRange(firstValue: 0, length: 4)
 //rangeOfFourItems.firstValue = 6 //Error, rangeOfFourItems está como let -> constante
-rangeOfFourItems.length //Tampoco podría modificarla, ya que es constante
-
+print(rangeOfFourItems.length) //Tampoco podría modificarla, ya que es constante
+print(rangeOfFourItems.firstValue)
 
 /////////////////
 // Propiedades de Clase, cuando queremos que una propiedad no pertenezca a la instancia. Equivaldría a las propiedades estaticas de java
@@ -52,13 +52,14 @@ struct User {
     var name: String
     var surname: String
     
-    //ahora vamos a declarar nuestro propio getter y setter
+    //ahora vamos a declarar una computed propertie con nuestro propio getter y setter
+    //En este caso será equivalente a hacer un getCompleteName y un setCompleteName en java
     var completeName: String {
         get {
             return name + " " + surname
         }
         
-        set(username) {
+        set(username) {//username = "Aitor Menta"
             let values = username.split(separator: " ")
             name = String(values[0])
             surname = String(values[1])
@@ -66,19 +67,20 @@ struct User {
     }
     
     //tambien el setter se puede declarar sin parametro, entonces el parametros de entrada será "newValue"
+    //este metodo es equivalente al anterior
     var username: String {
         get {
             return name + " " + surname
         }
         
-        set {//se crearia el parametro "newValue"
+        set {//se crearia automaticamente el parametro "newValue"
             let values = newValue.split(separator: " ")
             name = String(values[0])
             surname = String(values[1])
         }
     }
     
-    //podemos hacer solo get
+    //podemos hacer solo get en una computed propertie
     var readOnlyProperty: String {
         //get { //El get seria optional
             return "Esta es solo de lectura"
@@ -89,6 +91,8 @@ var user = User(name: "fulano", surname: "de tal")
 print(user.completeName)
 user.completeName = "Aitor Menta"
 print(user.name)
+print(user.surname)
+print(user.completeName)
 
 user.username = "Harry Potter"
 print(user.username)
@@ -127,7 +131,7 @@ dump(manager)
 // Property Observers
 ////////////////
 
-//Se utilizan para detectar cambios en las propiedades, son llamadas siempre que alguna cambia de valor.
+//Se utilizan para detectar cambios en las propiedades, son llamadas siempre que alguna cambia de valor. No son necesarias poner las dos
 //Las podemos usar en cualquier propiedad menos en las de tipo Lazy
 
 class StepCounter {
