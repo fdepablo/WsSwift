@@ -7,7 +7,6 @@
 //Definen propiedades y almacenan valores
 //Definen métodos que aportan funcionalidad
 //Definen inicializadores o constructores para ambos
-//Pueden ser expandidas para aumentar su funcionalidad (parecido a herencia)
 
 ////////////
 // Solo las estructuras
@@ -23,7 +22,7 @@
 ////////////
 //a) Podemos utilizar herencia
 //b) Son variables de referencia, es decir lo que se guarda es la posicion de memoria del objeto al que está apuntando
-//c) Tiene métodos cuando se libera de memoria (deinit), como en java, lo que pasa es que no son muy usados
+//c) Tiene métodos cuando se libera de memoria (deinit), como en java, lo que pasa es que no son muy usados (destructores)
 
 ////////////
 // Definición de estructura, con la palabra "struct"
@@ -153,6 +152,8 @@ video.name = "video"
 var resolution = Resolution(width: 320, height: 480)
 var resolution2 = Resolution(width: 1920, height: 1080)
 
+//recordemos que cuando pasamos un argumento de entrada/salida
+//a una funcion debemos de poner el simbolo "&"
 probandoInstancias(resolution, video, &resolution2)
 
 print(video.name ?? "no hay nombre")

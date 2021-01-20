@@ -6,8 +6,8 @@
 //Esto seria equivalente a las propiedades NO estaticas de java, es decir, dinamicas
 
 struct FixedLengthRange {
-    var firstValue: Int
-    let length: Int
+    var firstValue: Int//propiedad variable
+    let length: Int//propiedad constante
 }
 
 var rangeOfThreeItems = FixedLengthRange(firstValue: 0, length: 3)
@@ -15,13 +15,15 @@ rangeOfThreeItems.firstValue = 6
 print(rangeOfThreeItems.firstValue)
 //rangeOfThreeItems.length = 3 //Error, length está como let -> constante
 
+//crearmos una nueva estructura pero esta vez como constante
+//la variable de la estructura
 let rangeOfFourItems = FixedLengthRange(firstValue: 0, length: 4)
 //rangeOfFourItems.firstValue = 6 //Error, rangeOfFourItems está como let -> constante
 print(rangeOfFourItems.length) //Tampoco podría modificarla, ya que es constante
 print(rangeOfFourItems.firstValue)
 
 /////////////////
-// Propiedades de Clase, cuando queremos que una propiedad no pertenezca a la instancia. Equivaldría a las propiedades estaticas de java
+// Propiedades de Clase, cuando queremos que una propiedad NO pertenezca a la instancia. Equivaldría a las propiedades estaticas de java
 ////////////////
 
 class Persona {
@@ -37,29 +39,33 @@ class Persona {
 }
 
 var persona = Persona()
+//accedemos a las propiedades de objeto o stored properties
+//a traves del objeto
 persona.nombre = "Fulano"
+//accedemos a las propiedades de clase a traves de la clase
 persona.edad = Persona.edadMaximaDeLasPersonas
-dump(persona)
+dump(persona)//nos permite imprimir los valores de un objeto
 
 /////////////////
-// Computed Properties (declarar explicitamente getter y setter)
+// Computed Properties
 ////////////////
 //Este tipo de propiedades no almacenan ningún valor, sino que proporcionan getter y setter a otras propiedades. Estan tanto en estructuras como en clases
 //Obligatorio -> Si ponemos un Set, necesitamos un Get, pero si ponemos un Get no tenemos porque poner un Set
 
 struct User {
     //estas dos variables tendrían el getter y setter por defecto
-    var name: String
-    var surname: String
+    //y son capaces de almacenar valores
+    var name: String //esta propiedad guarda el nombre
+    var surname: String //esta propiedad guarda el apellido
     
-    //ahora vamos a declarar una computed propertie con nuestro propio getter y setter
+    //ahora vamos a declarar una computed property con nuestro propio getter y setter
     //En este caso será equivalente a hacer un getCompleteName y un setCompleteName en java
     var completeName: String {
-        get {
+        get {//user.completeName
             return name + " " + surname
         }
         
-        set(username) {//username = "Aitor Menta"
+        set(username) {//user.completeName = "Aitor Menta"
             let values = username.split(separator: " ")
             name = String(values[0])
             surname = String(values[1])
@@ -82,14 +88,14 @@ struct User {
     
     //podemos hacer solo get en una computed propertie
     var readOnlyProperty: String {
-        //get { //El get seria optional
+        //get { //la palabra get seria optional
             return "Esta es solo de lectura"
         //}
     }
 }
 var user = User(name: "fulano", surname: "de tal")
-print(user.completeName)
-user.completeName = "Aitor Menta"
+print(user.completeName)//invocamos el get de la propiedad
+user.completeName = "Aitor Menta"//invocamos el set de la propiedad
 print(user.name)
 print(user.surname)
 print(user.completeName)
@@ -97,7 +103,7 @@ print(user.completeName)
 user.username = "Harry Potter"
 print(user.username)
 print(user.name)
-print(user.readOnlyProperty)
+print(user.readOnlyProperty)//solo podemos acceder, no modificar
 
 
 /////////////////
@@ -105,7 +111,7 @@ print(user.readOnlyProperty)
 ////////////////
 // Son Propiedades que su valor inicial no es calculado hasta que no se utiliza por primera vez. Por lo tanto SIEMPRE tienen que ir como variables (var)
 
-//Este tipo de propiedades son útiles cuando su valor inicial depende de factores externos cuyos valores no los conocemos hasta después de instanciar la clase.
+//Este tipo de propiedades son útiles cuando su valor inicial depende de factores externos cuyos valores no los conocemos hasta después de instanciar la clase, y no queremos crear memoria hasta entonces
 
 //En swift podemos utilizar la palabra reservada "lazy" en las propiedades para proporcionar este comportamiento
 
@@ -121,7 +127,7 @@ class DataManager {
 let manager = DataManager()
 manager.data.append("Some data")
 manager.data.append("Some more data")
-// La instancia de DataImporter para la propiedad de importer todavía no se ha creado.
+// La instancia de DataImporter para la propiedad de importer todavía no se ha creado ya que todavía no se ha utilizado
 dump(manager)
 //Cuando accedemos a ella por primera vez se crea
 print(manager.importer.filename)
@@ -135,8 +141,10 @@ dump(manager)
 //Las podemos usar en cualquier propiedad menos en las de tipo Lazy
 
 class StepCounter {
+    //queremos que totalStep cada vez que cambie de valor
+    //se ejecute un metodo
     var totalSteps: Int = 0 {
-        willSet(newTotalSteps) {//este metodo será llamado justo antes de llamar a la propiedad, si no damos parametro en esta funcion se crea por defecto "newValue"
+        willSet(newTotalSteps) {//este metodo será llamado justo antes de llamar a la propiedad, es decir, antes de que se cambie el valor de la propiedad totalStep. Si no damos parametro (newTotalStpes) en esta funcion se crea por defecto "newValue"
             print("About to set totalSteps to \(newTotalSteps)")
         }
         didSet (oldTotalSteps) {//Este metodo sera llamado justo despues de que el viejo valor se haya cambiado, si no damos parametro en esta funcion se crea por defecto "oldValue"
