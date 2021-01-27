@@ -6,10 +6,14 @@
 
 //Hace falta una instancia de la clase para llamarlos
 class Counter {
+    //atributo de clase
     var count = 0
+    //Metodo de instacia
     func increment() {
         count += 1
     }
+    //sobrecarga de metodos, metodos con igual nombre pero
+    //con distinto numero y tipo de parametros
     func increment(by amount: Int) {//parametro exterior e interior
         count += amount
     }
@@ -17,14 +21,14 @@ class Counter {
         count = 0
     }
 }
-
+//creamos el objeto (instanciamos la clase)
 let counter = Counter()
 counter.increment()
-counter.count
+print(counter.count)//1
 counter.increment(by: 5)
-counter.count
+print(counter.count)//6
 counter.reset()
-counter.count
+print(counter.count)//0
 
 //////////////////
 // Métodos de clase, equivalente a metodos estáticos en java
@@ -36,6 +40,8 @@ class SomeClass {
         print("Esto es un método muy bonito")
     }
 }
+//para usar este tipo de metodos no tenemos que crear el objeto
+//se usan directamente a traves de la clase
 SomeClass.someTypeMethod()
 
 //////////////////
@@ -44,7 +50,13 @@ SomeClass.someTypeMethod()
 //La referencia a si mismo, de toda la vida de dios, equivalente al "this" en java
 
 struct Point {
+    //tenemos 2 atributos
     var x = 0.0, y = 0.0
+    //en esta funcion tengo un argumento de entrada que es "x"
+    //que tiene el mismo nombre que el atributo "x"
+    //Por visibilidad, el argumento "x" oculta dentro de la funcion
+    //la "x" del atributo. Para poder acceder a atributo "x" de
+    //la clase podemos usar "self"
     func isToTheRightOf(x: Double) -> Bool {
         return self.x > x
     }
@@ -64,8 +76,8 @@ class Point2D {
     var x = 0.0, y = 0.0
     
     func moveBy(x deltaX: Double, y deltaY: Double) {
-        x += deltaX
-        y += deltaY
+        x += deltaX//incrementamos x
+        y += deltaY//incrementamos y
     }
 }
 
@@ -78,8 +90,8 @@ struct Point3D {
     //error: 09.Metodos.playground:78:11: error: left side of mutating operator isn't mutable: 'self' is immutable
     //x += deltaX
     //~ ^
-    
-    /*func moveBy(x deltaX: Double, y deltaY: Double, z deltaZ: Double) {
+    /*
+    func moveBy(x deltaX: Double, y deltaY: Double, z deltaZ: Double) {
         x += deltaX
         y += deltaY
         z += deltaZ
