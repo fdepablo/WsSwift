@@ -3,7 +3,10 @@
 class Vehicle {
     //Atributos que seran heredados por otras clases
     var currentSpeed = 0.0
-    var description: String {//Computed Properties GET
+    
+    //Computed Properties GET, las propiedades computadas tambien
+    //se heredan
+    var description: String {
         return "traveling at \(currentSpeed) miles per hour"
     }
     
@@ -89,7 +92,7 @@ print(vehicle.description)
 //////////////////
 //La sobreescritura es cuando tenemos un metodo hijo que se llama
 //exactamente igual que el padre, y tambien tiene los mismo argumentos
-//de entrada
+//de entrada y el mismo tipo
 
 //Podemos sobreescribir tanto computed properties como funciones, incluso variables de clase (si son computed)
 class Tractor : Vehicle {

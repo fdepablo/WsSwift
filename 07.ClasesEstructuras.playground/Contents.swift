@@ -95,7 +95,7 @@ tenEighty.frameRate = 30.0
 //Para imprimir un objeto así no sale bien por defecto
 print(tenEighty)
 
-//mejor usar la función dump
+//mejor usar la función dump para imprimir todo un objeto
 dump(tenEighty)
 
 //Las variables de Clases son referencias
