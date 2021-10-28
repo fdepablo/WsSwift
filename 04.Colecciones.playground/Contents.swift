@@ -91,6 +91,8 @@ for item in shoppingList.sorted() {
     print("\(item)")
 }
 
+//Notese que lo que devuelve es una lista ordenada, no
+//ordena la propia lista donde se invoca
 shoppingList.sorted()
 print(shoppingList)
 
