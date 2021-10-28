@@ -7,6 +7,9 @@
 var generictInts: Array<Int>
 var someInts = [Int]()//Mejor manera, usar esta en general
 
+//Con valores
+var threeDoubles = Array([1,2,3,4])
+
 //creandolo con valores por defecto
 //repeating: numero a repetir
 //count: numero de veces que lo repetimos
