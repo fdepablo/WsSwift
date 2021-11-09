@@ -46,7 +46,7 @@
 			attributes = {
 				LastUpgradeCheck = 1210;
 			};
-			buildConfigurationList = FB8E9FB42555C942005EE158 /* Build configuration list for PBXProject "WsSwiftUEM" */;
+			buildConfigurationList = FB8E9FB42555C942005EE158 /* Build configuration list for PBXProject "WsSwift" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -78,7 +78,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		FB8E9FB42555C942005EE158 /* Build configuration list for PBXProject "WsSwiftUEM" */ = {
+		FB8E9FB42555C942005EE158 /* Build configuration list for PBXProject "WsSwift" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				FB8E9FB52555C942005EE158 /* Debug */,

@@ -5,34 +5,17 @@
  de varias lineas
 */
 
-/*
-Para crear este tipo de proyectos playground se necesita XCODE
-Pasos en la ultima version:
- 
-1) Abrir XCODE y crear un nuevo proyecto XCODE
-2) En pestaña OTHER elegir "proyecto en blanco"
-4) Sobre el nombre del proyecto boton derecho y new File
-5) Elegir la pestaña iOS
-6) Abajo del todo escoger "Blank Playground"
- */
-
-//XCODE seria el IDE de IOS. Seria equivalente al Eclipse
-// Swift es un lenguaje orientado a objetos y que aporta
-//mucho "azucar sintactico", es decir, el codigo es bastante
-//agradable para los programadores
-
-//Dentro de XCODE lo que escribamos se autoguarda
+//Dentro de XCODE lo que escribamos se guarda automaticamente
 
 //Podemos declarar constantes con la palabra "let"
 let maximoNumeroDeIntentos = 10;
 //Podemos ver que no estamos poniendo el tipo de la variable
 //Swift es un lenguaje TIPADO, es decir, las variables tienen
 //un tipo de variable.
-//El tipo de la variable es optitivo, si no lo ponemos el tipo
+//El tipo de la variable es optativo, si no lo ponemos el tipo
 //swift hace lo que se llama "inferencia de tipos", es decir,
 //en tiempo de ejecucion decide el tipo de la variable, y esa
 //variable permanecera de ese tipo durante el resto del programa
-//Notese la diferencia con JavaScript
 
 //podemos ejecutar codigo pulsando el boton de play que hay
 //sobre el numero de linea
@@ -50,7 +33,7 @@ var numeroDouble = 70;//este numero seria un Int
 var numeroDouble2 = 70.0//este numero SI que seria un double
 var numeroDouble3 : Double = 70;//tambien seria un double
 
-//una de las vetajas del "azucar" es que no hace falta poner ";"
+//una de las vetajas del "azucar sintactico" es que no hace falta poner ";"
 
 print(maximoNumeroDeIntentos)
 print(variable1)
