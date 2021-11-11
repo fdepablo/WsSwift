@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXFileReference section */
+		FB663926273D7A3200CD4AE2 /* 12.ClasesEstructurasFunciones.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = 12.ClasesEstructurasFunciones.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		FB663927273D7ABB00CD4AE2 /* 13.PropiedadesAvanzadas.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = 13.PropiedadesAvanzadas.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		FB8E9FB72555C94F005EE158 /* 07.ClasesEstructuras.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = 07.ClasesEstructuras.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		FB8E9FB82555C94F005EE158 /* 11.Subscripts.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = 11.Subscripts.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		FB8E9FB92555C94F005EE158 /* 06.Funciones.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = 06.Funciones.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
@@ -35,6 +37,8 @@
 				FB8E9FBC2555C94F005EE158 /* 09.Metodos.playground */,
 				FB8E9FBD2555C94F005EE158 /* 10.Herencia.playground */,
 				FB8E9FB82555C94F005EE158 /* 11.Subscripts.playground */,
+				FB663926273D7A3200CD4AE2 /* 12.ClasesEstructurasFunciones.playground */,
+				FB663927273D7ABB00CD4AE2 /* 13.PropiedadesAvanzadas.playground */,
 			);
 			sourceTree = "<group>";
 		};

@@ -3,13 +3,7 @@
 class Vehicle {
     //Atributos que seran heredados por otras clases
     var currentSpeed = 0.0
-    
-    //Computed Properties GET, las propiedades computadas tambien
-    //se heredan
-    var description: String {
-        return "traveling at \(currentSpeed) miles per hour"
-    }
-    
+        
     //metodo que sera heredado por otras clases
     func makeNoise() {
         // do nothing - an arbitrary vehicle doesn't necessarily make a noise
@@ -26,9 +20,7 @@ class Vehicle {
 }
 
 var vehicle = Vehicle()
-print(vehicle.description)
 vehicle.currentSpeed = 10.5
-print(vehicle.description)
 
 //////////////////
 // Subclases
@@ -48,7 +40,6 @@ bicycle.hasBasket = true
 
 //propiedades del padre
 bicycle.currentSpeed = 15.0
-print(bicycle.description)
 
 //la herencia en principio podemos heredar de todas las clases
 //que queramos, no importa que tengan herencias superiores.
@@ -66,7 +57,6 @@ var tandem = Tandem()//inferencia
 tandem.hasBasket = true
 tandem.currentNumberOfPassengers = 2
 tandem.currentSpeed = 22.0
-print(tandem.description)
 
 //recordar que en swift existe lo que se llama la inferencia de tipos
 //es decir, tandem se decide en tiempo de ejecucion que va a ser de
@@ -85,7 +75,6 @@ print(tandem.description)
 vehicle = bicycle
 dump(vehicle)
 vehicle.currentSpeed = 30.0
-print(vehicle.description)
 
 //////////////////
 // Sobreescritura
@@ -98,9 +87,6 @@ print(vehicle.description)
 class Tractor : Vehicle {
     //En swift hay que poner la palabra reservada "override" a diferencia
     //de java que se hacia de manera automatica
-    override var description: String {
-        return "Soy un tractor amarillo"
-    }
     
     override func makeNoise() {
         print("Chu chu! Vamos a las tierras!")
@@ -110,18 +96,7 @@ class Tractor : Vehicle {
     override class var variableParasobreEscribir: String {
         return "ejem"
     }
-    
-    //Podemos sobrescribir property observer
-    override var currentSpeed: Double {
-        willSet {//este metodo se ejecutara antes de cambiar el valor
-            print("ahora va a ser \(newValue)")
-        }
-        
-        didSet {//este metodo se ejecutará despues de cambiar el valor
-            print("se ha cambiado current Speed")
-        }
-    }
-    
+   
     //Para subscripts
     /*
     override subscript(index: Int) -> Int {
@@ -134,7 +109,6 @@ class Tractor : Vehicle {
 }
 
 let tractor = Tractor()
-print(tractor.description)
 print(tractor.makeNoise())
 print(tractor.currentSpeed)//heredado de vehiculo
 //para acceder a propiedades de clase recordemos que se tiene que hacer

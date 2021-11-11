@@ -1,7 +1,6 @@
 
 ////////////
 // FUNCIONES
-// Parámetros
 ////////////
 
 //Requieren que se indique el tipo de los parámetros de entrada y
@@ -10,12 +9,12 @@ func suma(numero1: Int, numero2: Int) -> Int {//a y b serian entrada, y devolvem
     return numero1 + numero2 //estos son internos & externos, es decir se llaman igual tanto dentro como fuera de la funcion
 }
 
-let sum = suma(numero1: 3, numero2: 6)
+var sum = suma(numero1: 3, numero2: 6)
 //En java sería
 //suma(3,6), cual es el numero1 y cual el 2? y que representa?
 
 //el orden importa
-//sum = suma(numero1: 5, numero2: 11) //error!
+//sum = suma(numero2: 5, numero1: 11) //error!
 
 //Pueden tener parámetros internos y externos.
 //Dentro de la funcion el parametro se llamara "parametroInternoA"
@@ -42,7 +41,7 @@ let sumMul = sumPlus(a: 3, b: 4, thenMultiplyBy: 5)
 //Omisión del parámetro externo, para darle un comportamiento como
 //las funciones y metodos de java, es decir, que cuando invoquemos
 //la funcion no tengamos que poner el nombre del parametro externo
-func sinParametroExterno(_ a: String) -> Void {//Con Void no devolvemos nada
+func sinParametroExterno(_ a: String) -> Void {//Con Void no devolvemos nada. Tambien podemos hacerlo no poniendo nada
     print("hacemos cosas... " + a)
 }
 sinParametroExterno("hola")//ahora invocas la funcion como en java
@@ -50,8 +49,8 @@ sinParametroExterno("hola")//ahora invocas la funcion como en java
 //Parámetros por referencia y valor
 //Referencia pasamos una "referencia" del objeto, es decir, si cambias el objeto se cambia fuera de la funcion
 //Valor lo que pasamos es una copia del objeto, es decir, si lo cambiamos dentro no se cambia fuera de la funcion
-//En una función, todos los parámetros son constantes, no se pueden cambiar
-func holaMundoValor(a: String) {
+//En swift, por defecto, los parametros se pasan por valor. Ademas, todos los parámetros son constantes, no se pueden cambiar
+func holaMundoValor(a: String) {//Notese que no devolvemos nada
     //a = a + "hola" //Error!
     print(a)
 }
@@ -59,8 +58,7 @@ func holaMundoValor(a: String) {
 var variableValor = "mundo"
 holaMundoValor(a: variableValor)
 
-//Tenemos que decirlo explicitamente si queremos cambiar el valor
-//usando "inout"
+//Tenemos que decirlo explicitamente si queremos pasarlo por referencia y poder cambiar el valor, para ello usamos la palabra reservada "inout"
 var parametro = "hola"
 func holaMundo(a: inout String) {
     a = a + " mundo"//ahora si podemos cambiarlo
