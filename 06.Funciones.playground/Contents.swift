@@ -3,20 +3,20 @@
 // FUNCIONES
 ////////////
 
-//Requieren que se indique el tipo de los parámetros de entrada y
-//de salida
-func suma(numero1: Int, numero2: Int) -> Int {//a y b serian entrada, y devolvemos un Int
+//Requieren que se indique el tipo de los parámetros de entrada y de salida
+func suma(numero1: Int, numero2: Int) -> Int {//numero1 y numero2 serian entrada, y devolvemos un Int que seria la salida
     return numero1 + numero2 //estos son internos & externos, es decir se llaman igual tanto dentro como fuera de la funcion
 }
 
+//En Swift por defecto debemos de poner el nombre de los parametros de la funcion y deben de ir en el mismo orden
 var sum = suma(numero1: 3, numero2: 6)
 //En java sería
 //suma(3,6), cual es el numero1 y cual el 2? y que representa?
 
-//el orden importa
+//El orden importa
 //sum = suma(numero2: 5, numero1: 11) //error!
 
-//Pueden tener parámetros internos y externos.
+//Pueden tener nombre de parámetros internos y externos.
 //Dentro de la funcion el parametro se llamara "parametroInternoA"
 //Fuera de la funcion el parametro se llamara "primerParametroExterno"
 func resta(primerParametroExterno parametroInternoA: Int, segundoParametroExterno parametroInternoB: Int) -> Int {
@@ -33,15 +33,16 @@ let resultadoDivision = dividir(dividendo: 10, divisor: 2)
 print(resultadoDivision)
 
 //Podemos mezclar externos con internos
-func sumPlus(a: Int, b: Int, thenMultiplyBy c: Int) -> Int {
+func sumaMultiplica(a: Int, b: Int, thenMultiplyBy c: Int) -> Int {
     return (a + b) * c
 }
-let sumMul = sumPlus(a: 3, b: 4, thenMultiplyBy: 5)
+let sumMul = sumaMultiplica(a: 3, b: 4, thenMultiplyBy: 5)
+print(sumMul)
 
 //Omisión del parámetro externo, para darle un comportamiento como
 //las funciones y metodos de java, es decir, que cuando invoquemos
 //la funcion no tengamos que poner el nombre del parametro externo
-func sinParametroExterno(_ a: String) -> Void {//Con Void no devolvemos nada. Tambien podemos hacerlo no poniendo nada
+func sinParametroExterno(_ a: String) {//Tambien podemos hacerlo poniendo como valor de retorno " -> Void "
     print("hacemos cosas... " + a)
 }
 sinParametroExterno("hola")//ahora invocas la funcion como en java

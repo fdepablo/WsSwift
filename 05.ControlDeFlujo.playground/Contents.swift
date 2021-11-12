@@ -2,7 +2,7 @@
 // For-In
 //////////////
 
-//en un array
+//En un array
 let names = ["Anna", "Alex", "Brian", "Jack"]
 for name in names {
     print("Hello, \(name)!")
@@ -19,7 +19,7 @@ for (animalName, legCount) in numberOfLegs {
     print("\(animalName)s have \(legCount) legs")
 }
 
-//por rango
+//Por rango
 for index in 1...5 {
     print("\(index) times 5 is \(index * 5)")
 }
@@ -62,7 +62,7 @@ for _ in stride(from: 1, through: 5, by: 1){
 // While
 //////////////
 var number = 48
-while ( number != 0) { // se pueden quitar los parentesis
+while (number != 0) { // se pueden quitar los parentesis
     number = number - 1
 }
 print(number)
@@ -113,7 +113,7 @@ for index in 0...5 {
 // If
 //////////////
 
-//como los de toda la vida
+//Condiciones. Podemos omitir los parenteis
 if 10 <= 32 {
     print("Pues si, pues si")
 }

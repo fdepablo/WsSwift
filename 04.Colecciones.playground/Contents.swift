@@ -2,10 +2,10 @@
 //Arrays
 ///////////
 
-//almacena variables del mismo tipo en una lista ordenada (según añadimos). admite repetidos
+//Almacena variables del mismo tipo en una lista ordenada (según añadimos). admite repetidos
 //Dos formas equivalentes
 var generictInts: Array<Int>
-var someInts = [Int]()//Mejor manera, usar esta en general
+var someInts = [Int]()
 
 //Con valores
 var threeDoubles = Array([1,2,3,4])
@@ -121,7 +121,7 @@ for genre in favoriteGenres {
 }
 
 ///////////
-//Diccionarios
+//Diccionarios (Map)
 ///////////
 //almacena variables siempre con (clave: valor)
 var namesOfIntegers = [Int: String]()//clave Int - Valor String

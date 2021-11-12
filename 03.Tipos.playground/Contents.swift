@@ -2,27 +2,27 @@ import UIKit
 
 var str = "Hello, playground"
 
-//Ver los tipos mas importantes en Swift
-//y algunos metodos y formas de trabajar
+//Vamos a ver los tipos mas importantes en Swift y algunos metodos y formas de trabajar
+//En Swift todos los tipos son objetos, no hay primitivos
 
 //Enteros
 let numero : Int //declaracion en tiempo de compilacion
 let numerosDeLaMano = 5 //creacion con inferencia de tipos
-//para numeros grandes
+//Para numeros grandes podemos poner "_" entre los numeros para facilitar su lectura
 let numeroEstrellas = 1_000_000_000
 
-print(type(of:numero))
-print(type(of:numerosDeLaMano))
-print(type(of: numeroEstrellas))
+print(type(of:numero))//Int
+print(type(of:numerosDeLaMano))//Int
+print(type(of: numeroEstrellas))//Int
 
 //otros sistemas numericos
 let nBinario = 0b101;
 let nOctal = 0o21;
 let nHexa = 0xAAFF;
 
-print(nBinario)
-print(nOctal)
-print(nHexa)
+print(nBinario)//5
+print(nOctal)//17
+print(nHexa)//43775
 
 //Double
 var decimalUno : Double
@@ -42,7 +42,7 @@ var verdadero : Bool = true//declarando
 var falso  = false//inferencia
 
 //Caracteres
-let caracter : Character = "f"
+let caracter : Character = "f"//Se ponen con comillas dobles
 
 //Strings
 //Representan cadenas de caracteres
@@ -51,8 +51,8 @@ var cadena2 : String = "Esto seria otra cadena"
 
 //Dos maneras de crear un objeto String
 cadena = "Homer"
-cadena2 = String("Homer")
-//ambas maneras son equivalentes
+cadena2 = String("Homer")//Constructor, no existe la palabra "new"
+//Ambas maneras son equivalentes
 
 //Comparacion
 if cadena == cadena2 {
@@ -137,7 +137,7 @@ if(cadena3 == cadena4){
 var html = "<html>"
 html += "<head><title>Mi pagina web</title></head>"
 html += "<body>"
-//esto es un poco rollo... :(
+//Esto es un poco rollo... :(
 //Podemos usar strings multilinea (""")
 var htmlMultilinea = """
 <html>

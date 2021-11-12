@@ -29,6 +29,7 @@ print(1 <= 2)//menor o igual
 
 //Op ternario
 //operador equivalente a un if-else, más corto
+//Sintaxis -> EXPRESION_BOOLEANA ? CODIGO_EN_CASO_TRUE : CODIGO_EN_CASO_FALSE
 let anchura = 40
 let tieneCabecera = true
 //supongamos que la altura de la columna es en funcion de si tiene cabecera
@@ -38,13 +39,13 @@ let tieneCabecera = true
 var alturaColumna = anchura + ( tieneCabecera ? 50 : 20)
 print(alturaColumna)//90
 
-//operador Nil-coalescing (Nil-fusionado)
-//Sintaxis (a ?? b)
+//Operador Nil-Coalescing (Nil-fusionado)
+//Sintaxis -> OPTIONAL ?? VALOR
 //Se utiliza mucho con optionals
-//En caso de que el optional "a" tenga un valor, entonces devuelve el valor de "a"
-//En caso de que el optional "a" sea nulo, entonces devuelve el valor de "b"
+//En caso de que OPTIONAL tenga un valor, entonces devuelve el valor del OPTIONAL
+//En caso de que OPTIONAL sea nulo, entonces devuelve el valor de "b"
 let colorPorDefecto = "Azul"
-var colorDefinidoPorUsuario : String?//se inicializa nil
+var colorDefinidoPorUsuario : String?//Se inicializan nil
 //colorDefinidoPorUsuario = "Verde"
 
 var color = (colorDefinidoPorUsuario ?? colorPorDefecto)
@@ -52,6 +53,13 @@ print(color)
 
 //directamente podriamos hacer
 print(colorDefinidoPorUsuario ?? "No hay color")
+
+//Util cuando trabajamos con variables que no son optional para desenvolverlas de manera segura
+var valorNil : String?
+var valorNormal : String = ""
+//En vez de hacer un "valorNil?" que terminaria dando una excepcion en tiempo de ejecucion, mejor utilizar Nil-Coalescing para desenvolver el objeto y en caso de que sea nil el valor, coger el otro valor
+valorNormal = valorNil ?? "Vacio"
+print(valorNormal)
 
 //operadores logicos
 //logical NOT (!variable)
