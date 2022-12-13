@@ -26,7 +26,7 @@ let maximoNumeroDeIntentos = 10;
 var variable1 = 25;//Esta variable es entera
 variable1 = 45
 
-//Esto de aqui abajo fallaria, variable1 es de tipo String
+//Esto de aquí abajo fallaria, variable1 es de tipo String
 //variable1 = "Steve Rogers";
 
 //Podemos decir el tipo de la variable al mismo tiempo
